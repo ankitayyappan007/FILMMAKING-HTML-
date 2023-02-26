@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0;background-color: black;}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+
+@media only screen and (max-width: 1000px) {
+  .prev, .next,.text {font-size: 20px}
+}
+
+</style>
+</head>
+<body>
+<div class="slideshow-container">
+<div class="mySlides fade">
+  <div class="numbertext">1 / 4</div>
+  <img src="Nolan.jpg" style="width:100%">
+  <div class="text">Christopher Edward Nolan is a British-American filmmaker. 
+Known for his Hollywood blockbusters with complex storytelling, Nolan is considered a leading filmmaker of the 21st century.
+Nolan's work regularly feature in the listings of best films of their respective decades.
+ They are typically characterised by epistemology and existentialism.
+ Infused with a metaphysical outlook, they explore ethics, the construction of time, and the malleable nature of memory and personal identity.
+ His work is permeated with mathematically
+ inspired images and concepts, unconventional narrative structures, practical special effects, experimental soundscapes, 
+large-format film photography, and materialistic perspectives.
+</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 4</div>
+  <img src="Tarantino.jpg" style="width:100%">
+  <div class="text">Quentin Jerome Tarantino  is an American film director, writer, producer, and actor. 
+His films are characterized by frequent references to popular culture and film genres, non-linear storylines, 
+dark humor, stylized violence, extended dialogue, pervasive use of profanity, cameos and ensemble casts.Tarantino's work has been subject to controversy, 
+such as the depictions of violence, frequent inclusion of racial slurs.
+During his career, Tarantino's films have garnered a cult following, as well as critical and commercial success.
+ He has been considered "the single most influential director of his generation", and listed as one of the most influential people in the world.
+ </div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 4</div>
+  <img src="James.jpg" style="width:100%">
+  <div class="text">James Francis Cameron is a Canadian filmmaker. 
+A major figure in the post-New Hollywood era, he is considered one of the industry's most innovative filmmakers, 
+regularly pushing the boundaries of cinematic capability with his use of novel technologies.
+Cameron's films have grossed over $8 billion worldwide, 
+making him the second highest-grossing film director of all time.
+Cameron holds the achievement of having directed the first two of the six films in history to gross over $2 billion worldwide. 
+He is also the only director to have three films grossed over $2 billion worldwide.
+In 2010, Time named Cameron as one of the 100 most influential people in the world.
+ Cameron is also an environmentalist and runs several sustainability businesses.
+</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">4 / 4</div>
+  <img src="Steven.jpg" style="width:100%">
+  <div class="text">Steven Allan Spielberg is an American film director, writer and producer.
+ A major figure of the New Hollywood era and pioneer of the modern blockbuster,
+ he is the most commercially successful director of all time.
+Spielberg’s style of filmmaking is based on three elements: storytelling, character development, and suspense.
+ Spielberg knows how to tell a story in such a way that it will leave you wanting more after every scene.
+</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">❮</a>
+<a class="next" onclick="plusSlides(1)">❯</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span> 
+</div>
+
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script>
+
+</body>
+</html> 
